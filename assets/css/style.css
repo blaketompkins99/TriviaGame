@@ -1,0 +1,29 @@
+body {
+    background-image: url("../images/theLogo.jpeg");
+    font-family: unset;
+}
+
+#begin {
+    background-color: whitesmoke;
+    text-align: center;
+    align-content: center;
+    width: 700px;
+    height: 400px;
+    margin: 50px 250px;
+    padding: 50px;
+}
+
+h1 {
+    font-size: 50px;
+    margin: auto auto 100px auto;
+}
+
+#start {
+    background-color: rgb(59, 120, 233);
+    height: 100px;
+    width: 300px;
+    font-size: 50px;
+    font-family: unset;
+    color: white;
+    border: solid 2px black;
+}
