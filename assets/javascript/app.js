@@ -113,9 +113,9 @@ function initialize() {
         wrong++
         unanswered--;
     }
-    
+
     $("#doneBtn").append("<button id='done'>DONE");
-    
+
     $("#done").css("background-color", "rgb(59, 120, 233");
     $("#done").css("height", "100px");
     $("#done").css("width", "300px");
@@ -144,6 +144,10 @@ function initialize() {
         $("#results").append("<h3>Unanswered: " + unanswered + "<h3>");
     }
 
-$("#done").on("click", endGame);
+    if (timeLeft === 0) {
+        endGame();
+    }
+    
+    $("#done").on("click", endGame);
 
 }
