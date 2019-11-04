@@ -102,10 +102,17 @@ function initialize() {
     }
 
     $("#questions").append("<h2>" + questions.question4 + "<h2>");
-    $("#questions").append("<input id='qfour' type='radio' name='q4' value='incorrect'>" + questions.a4 + " ");
-    $("#questions").append("<input id='qfour' type='radio' name='q4' value='correct'>" + questions.b4 + " ");
-    $("#questions").append("<input id='qfour' type='radio' name='q4' value='incorrect'>" + questions.c4 + " ");
- 
+    $("#questions").append("<input type='radio' name='q4' value='incorrect'>" + questions.a4 + " ");
+    $("#questions").append("<input type='radio' name='q4' value='correct'>" + questions.b4 + " ");
+    $("#questions").append("<input type='radio' name='q4' value='incorrect'>" + questions.c4 + " ");
+    answer4 = $("q4").value;
+    if (answer4 === "correct") {
+        right++;
+        unanswered--;
+    } else if (answer4 === "incorrect") {
+        wrong++
+        unanswered--;
+    }
     
     $("#doneBtn").append("<button id='done'>DONE");
     
@@ -125,17 +132,16 @@ function initialize() {
     interval = setInterval(decrement, 1000);
 
     function endGame() {
-        answer4 = $("#qfour").value;
-        if (answer4 == "correct") {
-            right++;
-            unanswered--;
-        } else if (answer4 == "incorrect") {
-            wrong++
-            unanswered--;
-        }
         console.log("right " + right);
         console.log("wrong " + wrong);
         console.log("ua " + unanswered);
+        $("#questions").remove();
+        $("#timer").remove();
+        $("#doneBtn").remove();
+        $("#begin").css("height", "400px");
+        $("#results").append("<h3>Correct: " + right + "<h3>");
+        $("#results").append("<h3>Incorrect: " + wrong + "<h3>");
+        $("#results").append("<h3>Unanswered: " + unanswered + "<h3>");
     }
 
 $("#done").on("click", endGame);
