@@ -47,6 +47,9 @@ function initialize() {
         $("#timer").html("<h1>" + timeLeft + "<h1>");
         $("#timer").css("position", "relative");
         $("#timer").css("color", "red");
+        if (timeLeft === 0) {
+            endGame();
+        }
     }
 
     $("#questions").append("<h2>" + questions.question0 + "<h2>");
@@ -144,10 +147,6 @@ function initialize() {
         $("#results").append("<h3>Unanswered: " + unanswered + "<h3>");
     }
 
-    if (timeLeft === 0) {
-        endGame();
-    }
-    
     $("#done").on("click", endGame);
 
 }
