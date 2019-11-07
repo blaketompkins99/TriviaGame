@@ -56,7 +56,8 @@ function initialize() {
     $("#questions").append("<input type='radio' name='q0' value='correct'>" + questions.a0 + " ");
     $("#questions").append("<input type='radio' name='q0' value='incorrect'>" + questions.b0 + " ");
     $("#questions").append("<input type='radio' name='q0' value='incorrect'>" + questions.c0 + " ");
-    answer0 = $("q0").value;
+    answer0 = $("input").attr("value");
+    console.log(answer0);
     if (answer0 === "correct") {
         right++;
         unanswered--;
@@ -69,7 +70,8 @@ function initialize() {
     $("#questions").append("<input type='radio' name='q1' value='incorrect'>" + questions.a1 + " ");
     $("#questions").append("<input type='radio' name='q1' value='incorrect'>" + questions.b1 + " ");
     $("#questions").append("<input type='radio' name='q1' value='correct'>" + questions.c1 + " ");
-    answer1 = $("q1").value;
+    answer1 = $("input").attr("value");
+    console.log(answer1);
     if (answer1 === "correct") {
         right++;
         unanswered--;
@@ -79,14 +81,15 @@ function initialize() {
     }
 
     $("#questions").append("<h2>" + questions.question2 + "<h2>");
-    $("#questions").append("<input type='radio' name='q2' value='incorrect'>" + questions.a2 + " ");
-    $("#questions").append("<input type='radio' name='q2' value='correct'>" + questions.b2 + " ");
-    $("#questions").append("<input type='radio' name='q2' value='incorrect'>" + questions.c2 + " ");
-    answer2 = $("q2").value;
-    if (answer2 === "correct") {
+    $("#questions").append("<input type='radio' name='q2' value='false'>" + questions.a2 + " ");
+    $("#questions").append("<input type='radio' name='q2' value='true'>" + questions.b2 + " ");
+    $("#questions").append("<input type='radio' name='q2' value='false'>" + questions.c2 + " ");
+    answer2 = $("input").attr("value");
+    console.log(answer2);
+    if (answer2 === "true") {
         right++;
         unanswered--;
-    } else if (answer2 === "incorrect") {
+    } else if (answer2 === "false") {
         wrong++
         unanswered--;
     }
@@ -95,7 +98,8 @@ function initialize() {
     $("#questions").append("<input type='radio' name='q3' value='incorrect'>" + questions.a3 + " ");
     $("#questions").append("<input type='radio' name='q3' value='incorrect'>" + questions.b3 + " ");
     $("#questions").append("<input type='radio' name='q3' value='correct'>" + questions.c3 + " ");
-    answer3 = $("q3").value;
+    answer3 = $("input").attr("value");
+    console.log(answer3);
     if (answer3 === "correct") {
         right++;
         unanswered--;
@@ -108,7 +112,8 @@ function initialize() {
     $("#questions").append("<input type='radio' name='q4' value='incorrect'>" + questions.a4 + " ");
     $("#questions").append("<input type='radio' name='q4' value='correct'>" + questions.b4 + " ");
     $("#questions").append("<input type='radio' name='q4' value='incorrect'>" + questions.c4 + " ");
-    answer4 = $("q4").value;
+    answer4 = $("input").attr("value");
+    console.log(answer4);
     if (answer4 === "correct") {
         right++;
         unanswered--;
@@ -145,6 +150,7 @@ function initialize() {
         $("#results").append("<h3>Correct: " + right + "<h3>");
         $("#results").append("<h3>Incorrect: " + wrong + "<h3>");
         $("#results").append("<h3>Unanswered: " + unanswered + "<h3>");
+        timeLeft = -1;
     }
 
     $("#done").on("click", endGame);
