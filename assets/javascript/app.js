@@ -56,71 +56,27 @@ function initialize() {
     $("#questions").append("<input type='radio' id='right0' name='q0' value='correct'>" + questions.a0 + " ");
     $("#questions").append("<input type='radio' id='wrong0' name='q0' value='incorrect'>" + questions.b0 + " ");
     $("#questions").append("<input type='radio' id='wrong0' class='0' name='q0' value='incorrect'>" + questions.c0 + " ");
-    answer0 = $(".0").attr("value");
-    console.log(answer0);
-    if($('#right0').is(':checked')) {
-        right++;
-    } else if ($('#wrong0').is(':checked')){
-        wrong++
-    } else {
-        unanswered++;
-    }
 
     $("#questions").append("<h2>" + questions.question1 + "<h2>");
     $("#questions").append("<input type='radio' id='wrong1' name='q1' value='incorrect'>" + questions.a1 + " ");
     $("#questions").append("<input type='radio' id='wrong1' name='q1' value='incorrect'>" + questions.b1 + " ");
     $("#questions").append("<input type='radio' id='right1' id='1' name='q1' value='correct'>" + questions.c1 + " ");
-    answer1 = $(".1").attr("value");
-    console.log(answer1);
-    if($('#right1').is(':checked')) {
-        right++;
-    } else if ($('#wrong1').is(':checked')){
-        wrong++
-    } else {
-        unanswered++;
-    }
 
     $("#questions").append("<h2>" + questions.question2 + "<h2>");
     $("#questions").append("<input type='radio' id='wrong2' name='q2' value='incorrect'>" + questions.a2 + " ");
     $("#questions").append("<input type='radio' id='right2' name='q2' value='correct'>" + questions.b2 + " ");
     $("#questions").append("<input type='radio' id='wrong2' name='q2' value='incorrect'>" + questions.c2 + " ");
-    answer2 = $(".2").attr("value");
-    console.log(answer2);
-    if($('#right2').is(':checked')) {
-        right++;
-    } else if ($('#wrong2').is(':checked')){
-        wrong++
-    } else {
-        unanswered++;
-    }
+
 
     $("#questions").append("<h2>" + questions.question3 + "<h2>");
     $("#questions").append("<input type='radio' id='wrong3' name='q3' value='incorrect'>" + questions.a3 + " ");
     $("#questions").append("<input type='radio' id='wrong3' name='q3' value='incorrect'>" + questions.b3 + " ");
     $("#questions").append("<input type='radio' id='right3' name='q3' value='correct'>" + questions.c3 + " ");
-    answer3 = $(".3").attr("value");
-    console.log(answer3);
-    if($('#right3').is(':checked')) {
-        right++;
-    } else if ($('#wrong3').is(':checked')){
-        wrong++
-    } else {
-        unanswered++;
-    }
 
     $("#questions").append("<h2>" + questions.question4 + "<h2>");
     $("#questions").append("<input type='radio' id='wrong4' name='q4' value='incorrect'>" + questions.a4 + " ");
     $("#questions").append("<input type='radio' id='right4' name='q4' value='correct'>" + questions.b4 + " ");
     $("#questions").append("<input type='radio' id='wrong4' name='q4' value='incorrect'>" + questions.c4 + " ");
-    answer4 = $(".4").attr("value");
-    console.log(answer4);
-    if($('#right4').is(':checked')) {
-        right++;
-    } else if ($('#wrong4').is(':checked')){
-        wrong++
-    } else {
-        unanswered++;
-    }
 
     $("#doneBtn").append("<button id='done'>DONE");
 
@@ -140,6 +96,51 @@ function initialize() {
     interval = setInterval(decrement, 1000);
 
     function endGame() {
+        answer0 = $('[name="q0"]:checked').val();
+        answer1 = $('[name="q1"]:checked').val();
+        answer2 = $('[name="q2"]:checked').val();
+        answer3 = $('[name="q3"]:checked').val();
+        answer4 = $('[name="q4"]:checked').val();
+        if (answer0 === "correct") {
+            right++;
+        } else if (answer0 === "incorrect") {
+            wrong++;
+        } else {
+            unanswered++;
+        }
+
+        if (answer1 === "correct") {
+            right++;
+        } else if (answer1 === "incorrect") {
+            wrong++;
+        } else {
+            unanswered++;
+        }
+
+        if (answer2 === "correct") {
+            right++;
+        } else if (answer2 === "incorrect") {
+            wrong++;
+        } else {
+            unanswered++;
+        }
+
+        if (answer3 === "correct") {
+            right++;
+        } else if (answer3 === "incorrect") {
+            wrong++;
+        } else {
+            unanswered++;
+        }
+
+        if (answer4 === "correct") {
+            right++;
+        } else if (answer4 === "incorrect") {
+            wrong++;
+        } else {
+            unanswered++;
+        }
+
         console.log("right " + right);
         console.log("wrong " + wrong);
         console.log("ua " + unanswered);
